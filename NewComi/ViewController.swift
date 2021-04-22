@@ -1,7 +1,6 @@
 import UIKit
 import SafariServices
 import Lottie
-import RealmSwift
 
 class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
