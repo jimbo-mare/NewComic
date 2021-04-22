@@ -1,3 +1,4 @@
-# NewComic
-# NewComic
-# NewComic
+# コミック予約アプリ
+
+
+

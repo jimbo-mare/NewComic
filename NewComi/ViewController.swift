@@ -10,9 +10,9 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
     @IBOutlet weak var titleLabel: UILabel!
     @IBAction func Switch(_ sender: UISwitch) {
         if sender.isOn {
-            searchManga(publisherName: "")
+            searchManga(publisherName: favorite)
         } else {
-            searchManga(publisherName: "")
+            searchAllManga()
         }
     }
     @IBOutlet weak var tableView: UITableView!
@@ -21,6 +21,12 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
     //マンガのリスト
     var mangaList : [(title:String, publisherName:String, author: String, salesDate: String, itemUrl:URL, smallImageUrl:URL)] = []
     
+    //favorite宣言
+    var favorite:String = ""
+    //all宣言
+    var allcomics:String = ""
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //TableViewのdataSourceを設定
@@ -28,7 +34,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         //Table Viewのdelegateを設定
         tableView.delegate = self
         //表示
-        let favorite = UserDefaults.standard.string(forKey: "FavString")
+        favorite = UserDefaults.standard.string(forKey: "FavString") ?? ""
         searchManga(publisherName: favorite)
         
         //ユーザーネームの表示
@@ -66,17 +72,18 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
     }
     
     //serchMangaメソッド
-    func searchManga (publisherName : String?) {
-        //エンコード
-        guard let publisherName_encode = publisherName?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
-            return
-        }
+    func searchManga (publisherName : String?)  {
         
-        //URLの組み立て(ここでif分岐)
-        guard let req_url = URL (string: "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&publisherName=\(publisherName_encode)&booksGenreId=001001&availability=5&formatVersion=2&applicationId=1078393297425093197") else {
+        //エンコード
+        guard let publisherName_encode = (publisherName?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)) else {
             return
+            
         }
-        print(req_url)
+        //URLの組み立て
+        guard let req_url = URL (string: "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&publisherName=\(String(describing: publisherName_encode))&booksGenreId=001001&availability=5&formatVersion=2&applicationId=1078393297425093197")else{
+            return
+            
+        }
         
         //リクエストに必要な情報を生成
         let req = URLRequest(url: req_url)
@@ -101,20 +108,16 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
                     self.mangaList.removeAll()
                     //取得できている数だけ処理
                     for item in items {
-                        //マンガの名称、メーカー名、URL、画像のアンラップ
+                        //アンラップ
                         if let title = item.title , let publisherName = item.publisherName ,let author = item.author , let saleData = item.salesDate , let itemUrl = item.itemUrl , let smallImageUrl = item.itemUrl {
-                            //一つのお菓子をタプルに
+                            //タプルに
                             let manga = (title,publisherName,author,saleData,itemUrl,smallImageUrl)
-                            //お菓子の配列へ追加
+                            //配列へ追加
                             self.mangaList.append(manga)
                         }
                     }
                     
                     self.tableView.reloadData()
-                    if let okashidbg = self.mangaList.first {
-                        print("-------------")
-                        print("mangaList[0] = \(okashidbg)")
-                    }
                 }
             } catch {
                 //エラー処理
@@ -125,6 +128,59 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         task.resume()
     }
     
+    
+    //serchMangaメソッド
+    func searchAllManga ()  {
+        //URLの組み立て
+        guard let req_url = URL (string: "https://app.rakuten.co.jp/services/api/BooksBook/Search/20170404?format=json&booksGenreId=001001&availability=5&formatVersion=2&applicationId=1078393297425093197")else{
+            return
+            
+        }
+        
+        //リクエストに必要な情報を生成
+        let req = URLRequest(url: req_url)
+        //データ転送を管理するためのセッションを生成
+        let session = URLSession(configuration: .default, delegate: nil, delegateQueue: OperationQueue.main)
+        //
+        let task = session.dataTask(with: req, completionHandler: {
+            (data, response, error) in
+            //セッションを終了
+            session.finishTasksAndInvalidate()
+            //do try catch エラーハンドリング
+            do {
+                //JSONDecodeerのインスタンス取得
+                let decoder = JSONDecoder()
+                //受け取ったJSONデータをパースして格納
+                let json = try decoder.decode(ResultJson.self, from: data!)
+                
+                print(json)
+                //マンガの情報が取得できているか確認
+                if let items = json.Items {
+                    //リストの初期化
+                    self.mangaList.removeAll()
+                    //取得できている数だけ処理
+                    for item in items {
+                        //アンラップ
+                        if let title = item.title , let publisherName = item.publisherName ,let author = item.author , let saleData = item.salesDate , let itemUrl = item.itemUrl , let smallImageUrl = item.itemUrl {
+                            //タプルに
+                            let manga = (title,publisherName,author,saleData,itemUrl,smallImageUrl)
+                            //配列へ追加
+                            self.mangaList.append(manga)
+                        }
+                    }
+                    
+                    self.tableView.reloadData()
+                }
+            } catch {
+                //エラー処理
+                print("エラーが出ました")
+            }
+        })
+        //ダウンロード開始
+        task.resume()
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //マンガリストの総数
         return mangaList.count
@@ -133,7 +189,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //cellオブジェクト一行
         let cell = tableView.dequeueReusableCell(withIdentifier: "comicCell", for: indexPath)
-        //マンガのタイトル設定
+        //マンガのタイトル、作者名設定
         cell.textLabel?.text = mangaList[indexPath.row].title
         cell.detailTextLabel?.text = mangaList[indexPath.row].author
         //画像を取得
