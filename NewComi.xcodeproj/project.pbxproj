@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,13 +17,9 @@
 		67CD39DA262F92AB009567ED /* 38438-book.json in Resources */ = {isa = PBXBuildFile; fileRef = 67CD39D9262F92AB009567ED /* 38438-book.json */; };
 		67CD39DE262FA3CF009567ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CD39DD262FA3CF009567ED /* FirstViewController.swift */; };
 		67CD39E82630207F009567ED /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CD39E72630207F009567ED /* SplashViewController.swift */; };
-		D168EAA111285BF717B0F6A5 /* Pods_NewComi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3303BC6FBAD616BE823BC4FB /* Pods_NewComi.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0DF5C721EEB0D2DFCA7D19A5 /* Pods-NewComi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewComi.debug.xcconfig"; path = "Target Support Files/Pods-NewComi/Pods-NewComi.debug.xcconfig"; sourceTree = "<group>"; };
-		3303BC6FBAD616BE823BC4FB /* Pods_NewComi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NewComi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3932B3BD5264D3C8D77F2426 /* Pods-NewComi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewComi.release.xcconfig"; path = "Target Support Files/Pods-NewComi/Pods-NewComi.release.xcconfig"; sourceTree = "<group>"; };
 		671F3101262F759F00ED817E /* NewComi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewComi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		671F3104262F759F00ED817E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		671F3106262F759F00ED817E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +39,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D168EAA111285BF717B0F6A5 /* Pods_NewComi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,8 +50,6 @@
 			children = (
 				671F3103262F759F00ED817E /* NewComi */,
 				671F3102262F759F00ED817E /* Products */,
-				9AF36BB2097A8089422BF003 /* Pods */,
-				B96A2A462DFDCFEA8FB5A04E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -86,23 +79,6 @@
 			path = NewComi;
 			sourceTree = "<group>";
 		};
-		9AF36BB2097A8089422BF003 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0DF5C721EEB0D2DFCA7D19A5 /* Pods-NewComi.debug.xcconfig */,
-				3932B3BD5264D3C8D77F2426 /* Pods-NewComi.release.xcconfig */,
-			);
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		B96A2A462DFDCFEA8FB5A04E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				3303BC6FBAD616BE823BC4FB /* Pods_NewComi.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,11 +86,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 671F3118262F75A000ED817E /* Build configuration list for PBXNativeTarget "NewComi" */;
 			buildPhases = (
-				CA4F23866199CDD958A0F2DD /* [CP] Check Pods Manifest.lock */,
 				671F30FD262F759F00ED817E /* Sources */,
 				671F30FE262F759F00ED817E /* Frameworks */,
 				671F30FF262F759F00ED817E /* Resources */,
-				58343E1C625272170587B0F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -170,48 +144,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		58343E1C625272170587B0F4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NewComi/Pods-NewComi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NewComi/Pods-NewComi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NewComi/Pods-NewComi-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CA4F23866199CDD958A0F2DD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NewComi-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		671F30FD262F759F00ED817E /* Sources */ = {
@@ -367,7 +299,6 @@
 		};
 		671F3119262F75A000ED817E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DF5C721EEB0D2DFCA7D19A5 /* Pods-NewComi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -377,6 +308,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Marejim.NewComi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -386,7 +318,6 @@
 		};
 		671F311A262F75A000ED817E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3932B3BD5264D3C8D77F2426 /* Pods-NewComi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

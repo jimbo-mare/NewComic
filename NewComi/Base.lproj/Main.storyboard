@@ -32,7 +32,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="SkipBtn" destination="1sA-gD-8Yk" id="dqF-m4-AAh"/>
+                        <outlet property="SkipBtn" destination="1sA-gD-8Yk" id="Ihy-cG-8iB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Brv-ug-g49" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
