@@ -1,7 +1,6 @@
 import UIKit
 import SafariServices
 
-
 class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     //var animationView = AnimationView()
