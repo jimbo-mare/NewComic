@@ -47,6 +47,12 @@ class FirstViewController: UIViewController, UIPickerViewDelegate, UICollectionV
         self.view.backgroundColor = bgyellow
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            // キーボードを閉じる
+            textField.resignFirstResponder()
+            nameTextField.text = textField.text
+            return true
+    }
     
     //初期値
     var testText:String = "default"

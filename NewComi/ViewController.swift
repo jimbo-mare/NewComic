@@ -19,6 +19,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var userNameLabel: UILabel!
     
+    
     //マンガのリスト
     var mangaList : [(title:String, publisherName:String, author: String, salesDate: String, itemUrl:URL, smallImageUrl:URL)] = []
     
@@ -31,9 +32,9 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         //TableViewのdataSourceを設定
-        tableView.dataSource = self
+        self.tableView.dataSource = self
         //Table Viewのdelegateを設定
-        tableView.delegate = self
+        self.tableView.delegate = self
         //表示
         favorite = UserDefaults.standard.string(forKey: "FavString") ?? ""
         searchManga(publisherName: favorite)
@@ -46,6 +47,9 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         let bgyellow = UIColor(red: 234/255, green: 194/255, blue: 85/255, alpha: 1)
         self.view.backgroundColor = bgyellow
         
+        //NIB
+        let nib = UINib(nibName: "CustomCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "CustomCell")
     }
         //邪魔だから停止(後々)
         //addAnimationView()
@@ -191,10 +195,10 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //cellオブジェクト一行
-        let cell = tableView.dequeueReusableCell(withIdentifier: "comicCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath)as! CustomCell
         //マンガのタイトル、作者名設定
-        cell.textLabel?.text = mangaList[indexPath.row].title
-        cell.detailTextLabel?.text = mangaList[indexPath.row].author
+        cell.Title?.text = mangaList[indexPath.row].title
+        cell.Detail?.text = mangaList[indexPath.row].author
         
         //image表示
         //cell.imageView?.image = imagesamp
@@ -203,7 +207,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         if let imageData = try? Data(contentsOf: mangaList[indexPath.row].smallImageUrl) {
             //正常に取得できた場合はUIimageで画像オブジェクトを生成してCellにマンガ画像を設定
             print(imageData)
-            cell.imageView?.image = UIImage(data: imageData)
+            cell.CellImage?.image = UIImage(data: imageData)
         }
         //設定済みのcellオブジェクト
         return cell

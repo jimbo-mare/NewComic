@@ -14,6 +14,8 @@
 		671F310F262F759F00ED817E /* NewComi.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 671F310D262F759F00ED817E /* NewComi.xcdatamodeld */; };
 		671F3111262F75A000ED817E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 671F3110262F75A000ED817E /* Assets.xcassets */; };
 		671F3114262F75A000ED817E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 671F3112262F75A000ED817E /* LaunchScreen.storyboard */; };
+		675AE93D2644278600C8F29A /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675AE93B2644278600C8F29A /* CustomCell.swift */; };
+		675AE93E2644278600C8F29A /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 675AE93C2644278600C8F29A /* CustomCell.xib */; };
 		67CD39DA262F92AB009567ED /* 38438-book.json in Resources */ = {isa = PBXBuildFile; fileRef = 67CD39D9262F92AB009567ED /* 38438-book.json */; };
 		67CD39DE262FA3CF009567ED /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CD39DD262FA3CF009567ED /* FirstViewController.swift */; };
 		67CD39E82630207F009567ED /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CD39E72630207F009567ED /* SplashViewController.swift */; };
@@ -29,6 +31,8 @@
 		671F3110262F75A000ED817E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		671F3113262F75A000ED817E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		671F3115262F75A000ED817E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		675AE93B2644278600C8F29A /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = SOURCE_ROOT; };
+		675AE93C2644278600C8F29A /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = SOURCE_ROOT; };
 		67CD39D9262F92AB009567ED /* 38438-book.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "38438-book.json"; sourceTree = "<group>"; };
 		67CD39DD262FA3CF009567ED /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		67CD39E72630207F009567ED /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		671F3103262F759F00ED817E /* NewComi */ = {
 			isa = PBXGroup;
 			children = (
+				675AE93B2644278600C8F29A /* CustomCell.swift */,
+				675AE93C2644278600C8F29A /* CustomCell.xib */,
 				671F3104262F759F00ED817E /* AppDelegate.swift */,
 				671F3106262F759F00ED817E /* SceneDelegate.swift */,
 				671F3108262F759F00ED817E /* ViewController.swift */,
@@ -136,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				675AE93E2644278600C8F29A /* CustomCell.xib in Resources */,
 				671F3114262F75A000ED817E /* LaunchScreen.storyboard in Resources */,
 				67CD39DA262F92AB009567ED /* 38438-book.json in Resources */,
 				671F3111262F75A000ED817E /* Assets.xcassets in Resources */,
@@ -155,6 +162,7 @@
 				671F310F262F759F00ED817E /* NewComi.xcdatamodeld in Sources */,
 				67CD39E82630207F009567ED /* SplashViewController.swift in Sources */,
 				671F3107262F759F00ED817E /* SceneDelegate.swift in Sources */,
+				675AE93D2644278600C8F29A /* CustomCell.swift in Sources */,
 				67CD39DE262FA3CF009567ED /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
