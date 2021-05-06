@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  NewComi
-//
-//  Created by Ikumi Jimbo on 2021/04/21.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

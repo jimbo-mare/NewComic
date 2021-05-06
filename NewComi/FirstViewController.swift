@@ -42,8 +42,9 @@ class FirstViewController: UIViewController, UIPickerViewDelegate, UICollectionV
         publiPickerView.delegate = self
         publiPickerView.dataSource = self
         
-        // 背景色を空色に変更する
-        self.view.backgroundColor = UIColor.cyan
+        // 背景色変更
+        let bgyellow = UIColor(red: 234/255, green: 194/255, blue: 85/255, alpha: 1)
+        self.view.backgroundColor = bgyellow
     }
     
     
@@ -59,6 +60,7 @@ class FirstViewController: UIViewController, UIPickerViewDelegate, UICollectionV
     //pickerの値の取得
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         fav = dataList[row]
+        print(fav)
     }
     
     @IBAction func BtnAction(_ sender: Any) {

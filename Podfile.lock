@@ -1,38 +1,16 @@
 PODS:
-  - GradientCircularProgress (3.13.0)
   - lottie-ios (3.2.1)
-  - Realm (10.7.2):
-    - Realm/Headers (= 10.7.2)
-  - Realm/Headers (10.7.2)
-  - RealmSwift (10.7.2):
-    - Realm (= 10.7.2)
 
 DEPENDENCIES:
-  - GradientCircularProgress (from `https://github.com/keygx/GradientCircularProgress`)
   - lottie-ios
-  - RealmSwift
 
 SPEC REPOS:
   trunk:
     - lottie-ios
-    - Realm
-    - RealmSwift
-
-EXTERNAL SOURCES:
-  GradientCircularProgress:
-    :git: https://github.com/keygx/GradientCircularProgress
-
-CHECKOUT OPTIONS:
-  GradientCircularProgress:
-    :commit: 9e2dc60d335ee6eb3677bfd9f965f0ade3607f4c
-    :git: https://github.com/keygx/GradientCircularProgress
 
 SPEC CHECKSUMS:
-  GradientCircularProgress: f5a04b862adc1fbafbd21c0ff450ed7d74d1926e
   lottie-ios: 106e92eaf11fbed0a76590b4cdb9b5ec26123ff7
-  Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
-  RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
 
-PODFILE CHECKSUM: 8770cb6242be9477b16c396348a74523fc837558
+PODFILE CHECKSUM: 98729c8e345b603b0c326040f589452d0eb72d7d
 
 COCOAPODS: 1.10.1

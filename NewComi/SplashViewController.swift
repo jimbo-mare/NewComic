@@ -26,7 +26,8 @@ class SplashViewController: UIViewController {
         super.viewDidLoad()
         
         // ->背景色を空色に変更する
-        self.view.backgroundColor = UIColor.cyan
+        let bgyellow = UIColor(red: 234/255, green: 194/255, blue: 85/255, alpha: 1)
+        self.view.backgroundColor = bgyellow
     }
     
 

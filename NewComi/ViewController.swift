@@ -1,11 +1,12 @@
 import UIKit
 import SafariServices
-import Lottie
-import RealmSwift
+
 
 class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
     
     //var animationView = AnimationView()
+    
+    var imagesamp = UIImage(named:"imagesample")!
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBAction func Switch(_ sender: UISwitch) {
@@ -41,8 +42,10 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         let value:String = UserDefaults.standard.string(forKey: "NameString")!
         userNameLabel.text = "Welcome!\(value)"
         
-        // ->背景色を空色に変更する
-        self.view.backgroundColor = UIColor.cyan
+        // 背景色変更
+        let bgyellow = UIColor(red: 234/255, green: 194/255, blue: 85/255, alpha: 1)
+        self.view.backgroundColor = bgyellow
+        
     }
         //邪魔だから停止(後々)
         //addAnimationView()
@@ -192,9 +195,14 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         //マンガのタイトル、作者名設定
         cell.textLabel?.text = mangaList[indexPath.row].title
         cell.detailTextLabel?.text = mangaList[indexPath.row].author
+        
+        //image表示
+        //cell.imageView?.image = imagesamp
+        
         //画像を取得
         if let imageData = try? Data(contentsOf: mangaList[indexPath.row].smallImageUrl) {
             //正常に取得できた場合はUIimageで画像オブジェクトを生成してCellにマンガ画像を設定
+            print(imageData)
             cell.imageView?.image = UIImage(data: imageData)
         }
         //設定済みのcellオブジェクト
