@@ -200,9 +200,6 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         cell.Title?.text = mangaList[indexPath.row].title
         cell.Detail?.text = mangaList[indexPath.row].author
         
-        //image表示
-        //cell.imageView?.image = imagesamp
-        
         //画像を取得
         if let imageData = try? Data(contentsOf: mangaList[indexPath.row].smallImageUrl) {
             //正常に取得できた場合はUIimageで画像オブジェクトを生成してCellにマンガ画像を設定
@@ -212,10 +209,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         //設定済みのcellオブジェクト
         return cell
     }
-    
-    
-    
-    
+
     // Cellが選択された時に呼び出されるメソッド
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //ハイライト解除
