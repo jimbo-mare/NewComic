@@ -3,11 +3,7 @@ import SafariServices
 
 
 class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableViewDelegate, UITableViewDataSource {
-    
-    //var animationView = AnimationView()
-    
-    var imagesamp = UIImage(named:"imagesample")!
-    
+
     @IBOutlet weak var titleLabel: UILabel!
     @IBAction func Switch(_ sender: UISwitch) {
         if sender.isOn {
@@ -47,13 +43,10 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
         let bgyellow = UIColor(red: 234/255, green: 194/255, blue: 85/255, alpha: 1)
         self.view.backgroundColor = bgyellow
         
-        //NIB
+        //XIBファイル
         let nib = UINib(nibName: "CustomCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "CustomCell")
     }
-        //邪魔だから停止(後々)
-        //addAnimationView()
-    
     
     //JSONのitem内のデータ構造
     struct ItemsJson: Codable {
@@ -116,7 +109,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
                     //取得できている数だけ処理
                     for item in items {
                         //アンラップ
-                        if let title = item.title , let publisherName = item.publisherName ,let author = item.author , let saleData = item.salesDate , let itemUrl = item.itemUrl , let smallImageUrl = item.itemUrl {
+                        if let title = item.title , let publisherName = item.publisherName ,let author = item.author , let saleData = item.salesDate , let itemUrl = item.itemUrl , let smallImageUrl = item.smallImageUrl {
                             //タプルに
                             let manga = (title,publisherName,author,saleData,itemUrl,smallImageUrl)
                             //配列へ追加
@@ -168,7 +161,7 @@ class ViewController: UIViewController, SFSafariViewControllerDelegate, UITableV
                     //取得できている数だけ処理
                     for item in items {
                         //アンラップ
-                        if let title = item.title , let publisherName = item.publisherName ,let author = item.author , let saleData = item.salesDate , let itemUrl = item.itemUrl , let smallImageUrl = item.itemUrl {
+                        if let title = item.title , let publisherName = item.publisherName ,let author = item.author , let saleData = item.salesDate , let itemUrl = item.itemUrl , let smallImageUrl = item.smallImageUrl {
                             //タプルに
                             let manga = (title,publisherName,author,saleData,itemUrl,smallImageUrl)
                             //配列へ追加
